@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Gosha Sans Regular';
+  src: url(../fonts/GoshaSansRegular.otf);
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+}
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+#headingInject {
+  font-size: 2rem;
+  margin: 0;
+}
+
+::selection {
+  /* color: #247291; */
+  /* background-color: #042410; */
+}
+
+:root {
+  --h1-fontsize: clamp(3.5rem, 7vw, 7rem);
+  --h2-fontsize: clamp(2.5rem, 5vw, 5rem);
+  --p-fontsize: clamp(1.5rem, 3vw, 3rem);
+}
+
+*, 
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  background-color: #B485D8;
+  color: #FFFCEF;
+
+  font-family: 'Gosha Sans Regular';
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+}
+
+#themeSelect-wrapper {
+  position: relative;
+
+  display: inline-block;
+}
+
+#themeSelect-wrapper::after {
+  position: absolute;
+  top: 14px;
+  right: 2px;
+
+  content: '';
+
+  background: url(../img/arrowDown.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 0.5px black) invert(1);
+  pointer-events: none;
+
+  height: 22px;
+  width: 22px;
+
+  animation: pulse 777ms ease-out infinite alternate;
+}
+
+#themeSelect-label {
+  font-size: 1.5rem;
+}
+
+#themeSelect {
+  background: #FFFCE8;
+  border-radius: 18px;
+  font-family: 'Gosha Sans Regular';
+  font-size: 1.313rem;
+  padding: 11px;
+  padding-right: 30px;
+}
+
+#themeSelect:focus,
+#themeSelect:focus-visible {
+  box-shadow: 0 0 5px 2px white, inset 0 0 3px red;
+  outline: none;
+}
